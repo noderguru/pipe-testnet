@@ -38,10 +38,17 @@ docker logs -f popnode
 
 ### 🧪 Статус PoP-ноды:
 
+```bash
+curl -sk https://localhost/health && echo -e "\n"
+```
 http://your-server-ip/health   вот такой ответ должен быть ```{"status":"ok","message":"Direct HTTP server is working"}```
 
-https://your-server-ip/state 
+https://your-server-ip/state
 
+или посмотреть метрики на сервере 
+```bash
+curl -sk https://localhost/state && echo -e "\n"
+```
 ![image](https://github.com/user-attachments/assets/69d84f7c-1823-4bdf-aed2-148817773e58)
 
 # 💾 Обязательно:
