@@ -1,4 +1,4 @@
-## ----------------------------- Обнова на версию 0.3.1 ------------------------------------
+## ------------------------ Обнова на версию 0.3.1 ---------------------------
 ```bash
 wget https://raw.githubusercontent.com/noderguru/pipe-testnet/main/update_node-pipe_v0.3.1.sh -O /opt/popcache/update_node-pipe_v0.3.1.sh && cd /opt/popcache/ && chmod +x update_node-pipe_v0.3.1.sh && ./update_node-pipe_v0.3.1.sh
 ```
