@@ -13,6 +13,10 @@ if [ -z "$INVITE_CODE" ]; then
     exit 1
 fi
 
+if [ ! -f "$NODE_DIR/.pop_state.json.bak" ]; then
+    cp "$NODE_DIR/.pop_state.json" "$NODE_DIR/.pop_state.json.bak"
+fi
+
 docker stop popnode
 docker rm popnode
 docker rmi popnode
