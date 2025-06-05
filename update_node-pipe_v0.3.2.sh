@@ -31,6 +31,8 @@ WORKDIR /app
 
 COPY pop .
 COPY config.json .
+COPY .pop_state.json .
+COPY .pop_state.json.bak .
 
 RUN chmod +x ./pop
 
