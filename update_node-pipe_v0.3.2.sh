@@ -4,7 +4,14 @@ NODE_DIR="/opt/popcache"
 
 INVITE_CODE=$(docker exec popnode env | grep POP_INVITE_CODE | cut -d '=' -f2)
 
-echo "POP_INVITE_CODE=$INVITE_CODE" > "$NODE_DIR/pop.env"
+if [ -z "$INVITE_CODE" ] && [ -f "$NODE_DIR/pop.env" ]; then
+    INVITE_CODE=$(grep POP_INVITE_CODE "$NODE_DIR/pop.env" | cut -d '=' -f2)
+fi
+
+if [ -z "$INVITE_CODE" ]; then
+    echo "Не удалось найти инвайт-код. Проверьте контейнер или файл pop.env."
+    exit 1
+fi
 
 docker stop popnode
 docker rm popnode
