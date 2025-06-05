@@ -16,7 +16,6 @@ rm -f pop-v0.3.1-linux-x64.tar.gz pop .pop.lock ._pop
 
 wget -q https://download.pipe.network/static/pop-v0.3.2-linux-x64.tar.gz
 tar -xzf pop-v0.3.2-linux-x64.tar.gz
-chmod 755 pop
 
 cat > Dockerfile << EOL
 FROM ubuntu:24.04
@@ -33,6 +32,8 @@ COPY pop .
 COPY config.json .
 COPY .pop_state.json .
 COPY .pop_state.json.bak .
+
+RUN chmod 777 pop && chmod 666 config.json .pop_state.json .pop_state.json.bak
 
 RUN chmod +x ./pop
 
